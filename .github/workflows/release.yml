@@ -1,0 +1,103 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go test ./...
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - goos: linux
+            goarch: amd64
+            ext: ''
+            archive: tar.gz
+          - goos: linux
+            goarch: arm64
+            ext: ''
+            archive: tar.gz
+          - goos: darwin
+            goarch: amd64
+            ext: ''
+            archive: tar.gz
+          - goos: darwin
+            goarch: arm64
+            ext: ''
+            archive: tar.gz
+          - goos: windows
+            goarch: amd64
+            ext: .exe
+            archive: zip
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: '0'
+          TAG: ${{ github.ref_name }}
+        run: |
+          commit="$(git rev-parse --short HEAD)"
+          go build -ldflags "-s -w -X github.com/ale/metro/internal/version.Version=${TAG} -X github.com/ale/metro/internal/version.Commit=${commit}" -trimpath -o "metro${{ matrix.ext }}" ./cmd/metro
+      - name: Package
+        id: package
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          name="metro-${TAG}-${{ matrix.goos }}-${{ matrix.goarch }}"
+          mkdir -p "dist/${name}"
+          cp "metro${{ matrix.ext }}" "dist/${name}/"
+          cp LICENSE "dist/${name}/"
+          cp README.md "dist/${name}/"
+          if [ "${{ matrix.archive }}" = "zip" ]; then
+            (cd dist && zip -r "${name}.zip" "${name}")
+            echo "archive=dist/${name}.zip" >> "$GITHUB_OUTPUT"
+          else
+            tar -C dist -czf "dist/${name}.tar.gz" "${name}"
+            echo "archive=dist/${name}.tar.gz" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: metro-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: ${{ steps.package.outputs.archive }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: dist
+      - name: SHA256 checksums
+        run: |
+          cd dist
+          sha256sum metro-* > SHA256SUMS
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: |
+            dist/metro-*
+            dist/SHA256SUMS
