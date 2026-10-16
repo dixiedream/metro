@@ -6,12 +6,12 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ale/metro/internal/audio"
-	"github.com/ale/metro/internal/engine"
-	"github.com/ale/metro/internal/midi"
-	"github.com/ale/metro/internal/store"
-	"github.com/ale/metro/internal/ui"
-	"github.com/ale/metro/internal/version"
+	"github.com/dixiedream/metro/internal/audio"
+	"github.com/dixiedream/metro/internal/engine"
+	"github.com/dixiedream/metro/internal/midi"
+	"github.com/dixiedream/metro/internal/store"
+	"github.com/dixiedream/metro/internal/ui"
+	"github.com/dixiedream/metro/internal/version"
 )
 
 func main() {

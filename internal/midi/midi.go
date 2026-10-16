@@ -7,7 +7,7 @@ import (
 	"gitlab.com/gomidi/midi/v2"
 	"gitlab.com/gomidi/midi/v2/drivers"
 
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 type Action int

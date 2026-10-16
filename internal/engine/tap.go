@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 // TapTempo estimates BPM from successive taps.

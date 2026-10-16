@@ -8,12 +8,12 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 
-	"github.com/ale/metro/internal/audio"
-	"github.com/ale/metro/internal/engine"
-	"github.com/ale/metro/internal/midi"
-	"github.com/ale/metro/internal/model"
-	"github.com/ale/metro/internal/store"
-	"github.com/ale/metro/internal/version"
+	"github.com/dixiedream/metro/internal/audio"
+	"github.com/dixiedream/metro/internal/engine"
+	"github.com/dixiedream/metro/internal/midi"
+	"github.com/dixiedream/metro/internal/model"
+	"github.com/dixiedream/metro/internal/store"
+	"github.com/dixiedream/metro/internal/version"
 )
 
 type tickMsg time.Time

@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ale/metro/internal/engine"
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/engine"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 func TestTapTempo(t *testing.T) {

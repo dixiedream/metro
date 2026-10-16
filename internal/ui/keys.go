@@ -5,7 +5,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 func (m *Model) handleKey(msg tea.KeyMsg) tea.Cmd {

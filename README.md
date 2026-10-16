@@ -1,4 +1,10 @@
-# metro
+# Metro
+
+[![Release](https://img.shields.io/github/v/release/dixiedream/metro?sort=semver&display_name=tag&logo=github&logoColor=white)](https://github.com/dixiedream/metro/releases)
+[![Go](https://img.shields.io/github/go-mod/go-version/dixiedream/metro?logo=go&logoColor=white)](https://go.dev/)
+[![License: MIT](https://img.shields.io/github/license/dixiedream/metro)](LICENSE)
+[![Platforms](https://img.shields.io/badge/platforms-linux%20%7C%20macOS%20%7C%20windows-555?logo=linux&logoColor=white)](https://github.com/dixiedream/metro/releases)
+[![Bubble Tea](https://img.shields.io/badge/TUI-Bubble%20Tea-ff75bc?logo=gnometerminal&logoColor=white)](https://github.com/charmbracelet/bubbletea)
 
 Terminal metronome built in Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea).
 
@@ -18,7 +24,7 @@ Terminal metronome built in Go with [Bubble Tea](https://github.com/charmbracele
 ## Install
 
 ```bash
-go install github.com/ale/metro/cmd/metro@latest
+go install github.com/dixiedream/metro/cmd/metro@latest
 ```
 
 Or from this repo:
@@ -30,7 +36,7 @@ go build -o metro ./cmd/metro
 
 Requires a working audio output (oto/v3).
 
-Pre-built binaries for Linux (amd64, arm64), macOS (Intel and Apple silicon), and Windows (amd64) are attached to [GitHub Releases](https://github.com/ale/metro/releases). Pushing any git tag triggers the release workflow that builds those archives.
+Pre-built binaries for Linux (amd64, arm64), macOS (Intel and Apple silicon), and Windows (amd64) are attached to [GitHub Releases](https://github.com/dixiedream/metro/releases). Pushing any git tag triggers the release workflow that builds those archives.
 
 ## Terminal colors
 
