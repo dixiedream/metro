@@ -1,4 +1,4 @@
-# metro
+# Metro
 
 [![Release](https://img.shields.io/github/v/release/dixiedream/metro?sort=semver&display_name=tag&logo=github&logoColor=white)](https://github.com/dixiedream/metro/releases)
 [![Go](https://img.shields.io/github/go-mod/go-version/dixiedream/metro?logo=go&logoColor=white)](https://go.dev/)
