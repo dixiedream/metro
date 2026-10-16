@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 type Store struct {

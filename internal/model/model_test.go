@@ -3,7 +3,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 func TestTempoMarking(t *testing.T) {

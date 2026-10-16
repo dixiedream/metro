@@ -58,7 +58,7 @@ jobs:
           TAG: ${{ github.ref_name }}
         run: |
           commit="$(git rev-parse --short HEAD)"
-          go build -ldflags "-s -w -X github.com/ale/metro/internal/version.Version=${TAG} -X github.com/ale/metro/internal/version.Commit=${commit}" -trimpath -o "metro${{ matrix.ext }}" ./cmd/metro
+          go build -ldflags "-s -w -X github.com/dixiedream/metro/internal/version.Version=${TAG} -X github.com/dixiedream/metro/internal/version.Commit=${commit}" -trimpath -o "metro${{ matrix.ext }}" ./cmd/metro
       - name: Package
         id: package
         env:

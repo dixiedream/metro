@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ale/metro/internal/audio"
-	"github.com/ale/metro/internal/model"
+	"github.com/dixiedream/metro/internal/audio"
+	"github.com/dixiedream/metro/internal/model"
 )
 
 // BeatEvent is emitted on each scheduled click (including silent ones for UI).

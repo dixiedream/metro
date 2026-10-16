@@ -12,8 +12,8 @@ GOFLAGS ?=
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo dev)
 COMMIT  ?= $(shell git rev-parse --short HEAD 2>/dev/null)
 LDFLAGS ?= -s -w \
-	-X github.com/ale/metro/internal/version.Version=$(VERSION) \
-	-X github.com/ale/metro/internal/version.Commit=$(COMMIT)
+	-X github.com/dixiedream/metro/internal/version.Version=$(VERSION) \
+	-X github.com/dixiedream/metro/internal/version.Commit=$(COMMIT)
 
 .PHONY: all build install uninstall clean test
 
