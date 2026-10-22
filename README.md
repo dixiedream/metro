@@ -8,6 +8,10 @@
 
 Terminal metronome built in Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea).
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="Metro terminal metronome — tempo, beat LEDs, tracker, automator, and coach" width="720">
+</p>
+
 ## Features
 
 - BPM 10–400, tap tempo, Italian/classical tempo markings
